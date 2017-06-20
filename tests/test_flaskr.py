@@ -1,5 +1,5 @@
 import os
-import flaskr
+from flaskr import flaskr
 import unittest
 import tempfile
 
@@ -15,6 +15,10 @@ class FlaskrTestCase(unittest.TestCase):
     def tearDown(self):
         os.close(self.db_fd)
         os.unlink(flaskr.app.config['DATABASE'])
+
+    def test_empty_db(self):
+        rv = self.app.get('/')
+        self.assertTrue(b'No entries here so far' in rv.data)
 
 if __name__ == '__main__':
     unittest.main()
