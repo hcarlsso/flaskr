@@ -56,5 +56,11 @@ class FlaskrTestCase(unittest.TestCase):
             assert flask.request.path == '/'
             assert flask.request.args['name'] == 'Peter'
 
+    def test_context(self):
+
+        with self.app as c:
+            rv = c.get('/?tequila=42')
+            assert flask.request.args['tequila'] == '42'
+
 if __name__ == '__main__':
     unittest.main()
