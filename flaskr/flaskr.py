@@ -1,8 +1,15 @@
 # all the imports
 import os
 import sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+from flask import Flask
+from flask import request
+from flask import session
+from flask import g
+from flask import redirect
+from flask import url_for
+from flask import abort
+from flask import render_template
+from flask import flash
 
 
 app = Flask(__name__) # create the application instance :)
